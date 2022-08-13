@@ -1,0 +1,2 @@
+"0","options(htmltools.dir.version = FALSE)"
+"0","knitr::opts_chunk$set(tidy = FALSE, echo = FALSE)"

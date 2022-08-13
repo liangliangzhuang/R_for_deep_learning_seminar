@@ -1,0 +1,33 @@
+/*
+h1, h2, h3 - font colors for the different headers; removed text shadow
+*/
+
+h1, h2, h3 {
+  font-weight: normal;
+  color: #6699CC;
+  text-shadow: none;
+}
+
+/*
+for any links
+*/
+
+a, a > code {
+  color: #6699CC;
+}
+
+/*
+highlight color for inline code;
+the rgba takes red, green, blue, alpha arguments
+*/
+.remark-code-line-highlighted { background-color: rgba(19, 108, 235 0.3); }
+
+/* background color and headers, code, etc., colors for .inverse class slides (e.g., title)
+*/
+
+.inverse {
+  background-color: #FFFFFF;
+}
+.inverse, .inverse h1, .inverse h2, .inverse h3, .inverse a, inverse a > code {
+  color: #E7165F;
+}

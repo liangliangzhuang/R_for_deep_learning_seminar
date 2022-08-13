@@ -1,0 +1,14 @@
+"0","library(NeuralNetTools)#神经网络可视化"
+"0","library(nnet)"
+"0","n <- nnet(medv ~ .,data = data,size = c(2,3))"
+"1","# weights: "
+"1"," "
+"1","37"
+"1","
+"
+"1","initial  value 291174.879590 
+"
+"1","final  value 277329.140000 
+"
+"1","converged
+"

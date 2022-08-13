@@ -1,0 +1,362 @@
+---
+title: "R 语言深度学习入门教程"
+author: "庄亮亮"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+```{r xaringanExtra, echo=FALSE}
+xaringanExtra::use_xaringan_extra(c("tile_view", "animate_css", "tachyons"))
+xaringanExtra::use_fit_screen()
+```
+
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_light(base_color = "#88A8D3")
+```
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(tidy = FALSE, echo = FALSE)
+```
+
+
+
+## 目录
+
+- 自我介绍
+
+- 简介 
+
+- 配置工作环境
+
+- 简单案例介绍
+
+- 相关资源
+
+--
+
+**讲座目标**
+
+
+从 R 语言角度来介绍深度学习并解决以下几个问题：
+
+- 什么是深度学习？
+
+- 相关深度学习包有哪些？
+
+- 如何配置工作环境？
+
+- 如何使用神经网络建立模型？
+ 
+---
+## 自我介绍
+
+- 庄亮亮，在读统计学博士生（新生）[*]；
+
+- R 语言爱好者，个人公众号《庄闪闪的 R 语言手册》；
+
+```{r out.width="95%",fig.align='center',fig.cap=""}
+knitr::include_graphics("figure/4.png")
+```
+
+- 研究方向：可靠性分析，贝叶斯分析，剩余使用寿命预测，维修优化。
+
+.footnote[
+[*]个人网站：<https://zll-blog.netlify.app/>，GitHub：<https://github.com/liangliangzhuang>。
+]
+
+---
+## 简介
+
+
+深度学习是机器学习领域一个新的研究方向，通过模型模拟人类大脑的神经连接结构，进而给出数据的解释。
+
+```{r out.width="70%",fig.align='center',fig.cap=""}
+knitr::include_graphics("figure/16.png")
+```
+
+
+```{r out.width="30%",fig.align='center',fig.cap="人工智能、机器学习和深度学习的关系"}
+knitr::include_graphics("figure/1.png")
+```
+
+
+---
+## 简介
+
+深度学习之所以被称为 “深度”，是相对于其他” 浅层” 学习的方法（支持向量机、提升方法 、最大熵方法等）而言的。
+
+- 浅层学习依靠人工经验抽取样本特征，网络模型学习后获得的单层或双层的特征；
+
+- 深度学习通过对原始数据进行逐层特征变换，将样本在原空间的特征表示变换到新的特征空间，自动地学习得到层次化的特征表示，从而更有利于分类或特征的可视化。
+
+```{r out.width="60%",fig.align='center',fig.cap="图 2：通过数学分类模型学到的深度表述"}
+knitr::include_graphics("figure/13.png")
+```
+
+---
+## 深度学习的应用
+
+深度学习应用于各个领域。
+
+```{r out.width="70%",fig.align='center',fig.cap="图 3：深度学习的应用"}
+knitr::include_graphics("figure/5.png")
+```
+
+
+---
+## 感知器
+
+```{r out.width="65%",fig.align='center',fig.cap=""}
+knitr::include_graphics("figure/14.png")
+```
+
+
+```{r out.width="65%",fig.align='center',fig.cap="激活函数"}
+knitr::include_graphics("figure/15.png")
+```
+
+---
+## 多层感知器
+
+
+```{r out.width="50%",fig.align='center',fig.cap=""}
+knitr::include_graphics("figure/17.png")
+```
+
+```{r out.width="50%",fig.align='center',fig.cap=""}
+knitr::include_graphics("figure/10.png")
+```
+
+
+---
+
+## R 语言深度学习
+
+为什么使用 R？
+> 1. 拥有很多统计分析相关的软件包； 2. 可视化，文档沟通出众。
+
+CRAN 的 [机器学习与统计学习](https://cran.r-project.org/view=MachineLearning) 任务视图中与 R 语言深度学习相关的第三方包有：
+
+
+| R 包     | 描述   |
+|-----------------|-----------------------------------------------|
+| [nnet](https://cran.r-project.org/web/packages/nnet/index.html)       | 构建单隐藏层的前馈神经网络，多项对数线性模型。                                             |
+| [h2o](https://cran.r-project.org/web/packages/h2o/index.html)         | H2O 的 R 脚本功能。                                                                        |
+| [RSNNS](https://cran.r-project.org/web/packages/RSNNS/index.html)     | Stuttgart 神经网络模拟器(SNNS)接口。                                                       |
+| [tensorflow](http://www.tensorflow.org/)                              | TensorFlow 接口。                                                                          |
+| [deepnet](https://cran.r-project.org/web/packages/deepnet/index.html) | R 中的深度学习工具包（前馈神经网络，受限的玻尔兹曼机，深度信念网络，堆叠的自编码器）。     |
+| [RcppDL](https://cran.r-project.org/web/packages/RcppDL/index.html)   | 实现多层的机器学习方法，包括去噪自编码器，堆叠去噪自编码器，限制玻尔兹曼机和深度信念网络。 |
+| [torch](https://cran.r-project.org/web/packages/torch/index.html)     | 实现 libtorch 库的接口。                                                                   |
+
+
+阅读《深度学习与 R 语言》等书籍了解实际案例。 
+
+---
+
+## Keras 与 TensorFlow
+
+本文使用深度学习框架 [Keras](<https://keras.io/>)，并将 [TensorFlow](<https://www.tensorflow.org/?hl=zh-cn>) 作为后端引擎。
+<!-- 与其他包相比，Keras 的优点在于它的易用性。 -->
+
+**Keras** 
+
+- 允许相同的代码在 CPU 和 GPU 上无缝运行。
+
+- 具有用户友好的 API， 可以轻松快速构建深度学习模型。
+
+- 支持任意网络架构：多输入或多输出模型，层共享，模型共享等。
+<!-- 基本适合构建从生成对抗网络导神经图灵机的任何深度学习模型。 -->
+
+- 是最流行和发展最快的深度学习框架之一，被广泛推荐为入门深度学习的最佳工具。
+<!-- 它能够在 TensorFlow，CNTK，Theano 或 MXNet 上运行。 -->
+
+**TensorFlow**
+
+- 使用最广泛、可扩展且最适合生产的深度学习平台，由谷歌开发。
+
+- 其他平台包括：CNTK（MILA实验室）、THeano（微软）。
+
+
+
+```{r out.width="50%",fig.align='center',fig.cap=""}
+knitr::include_graphics("figure/6.png")
+```
+
+---
+
+
+## 配置工作环境
+
+
+在使用 R 进行深度学习前，需要在系统上安装以下东西：
+
+- R 、RStudio、TensorFlow 和 Keras。
+
+**安装流程**：
+
+```markdown
+# 安装tensorflow包
+install.packages("tensorflow")
+library(tensorflow)
+install_tensorflow()
+tf$constant("Hellow Tensorflow") # 确认是否安装成功：
+## tf.Tensor(b'Hellow Tensorflow', shape=(), dtype=string)
+# 安装keras包——Keras库提供的R接口；将Keras功能与R优势（可视化、R Markdown）相结合。
+install.packages("keras")
+library(keras)
+install_keras()
+is_keras_available() # 确认是否安装成功
+## [1] TRUE
+packageVersion('keras') # 查看版本
+## [1] ‘2.8.0’
+packageVersion('tensorflow') # 查看版本
+## [1] ‘2.9.0’
+```
+
+<!-- keras 包为 Keras 库提供的 R 接口。 将 Keras 的强大功能与 R 优势（可视化、R Markdown）相结合。 -->
+
+---
+
+## 简单神经网络建模
+
+<!-- 本节将从一个简单的回归例子来介绍如何在 R 中使用 keras 包进行深度学习。 -->
+
+**预测房价**：波士顿住房价格数据集（506：训练样本 404 个，测试样本 102 个）。
+
+> 其中，因变量为 medv（自有住房的中位数报价, 单位 1000 美元），自变量为其他 13 个变量，包括：CRIM （城镇人均犯罪率）、ZN（占地面积超过 25000 平方英尺的住宅用地比例）、INDUS （每个城镇非零售业务的比例）等。
+
+
+--
+
+**知识点**：
+
+1. 数据导入与数据处理。
+
+1. 构建神经网络。
+
+1. 训练神经网络。
+
+1. 评估模型的准确性。
+
+1. 保存并恢复创建的模型。
+
+1. 相关拓展：如何调整参数；如何解决过拟合问题。
+
+
+
+---
+
+### 深度学习的通用工作流程
+
+1.  定义问题并整合数据集
+
+2.  选择衡量成功的标准
+
+3.  确定评估方案
+
+    - 留出法验证集
+    - K 折交叉验证
+    - 重复 K 折交叉验证
+    
+4.  准备数据
+
+    - 数据处理： 划分训练集，测试集；标准化数据集；缺失值处理；数据格式转化等
+
+5.  开发模型
+
+    - 最后一层激活。分类： `sigmoid` 函数；回归：不使用激活。
+    - 损失函数：分类：`binary_crossentropy`; 回归：`mse`。
+    - 优化配置：哪种优化器？学习率多少？默认使用 `rmsprop` 及默认学习率即可。
+
+6. 开发一个过拟合模型
+
+7. 正则化模型并调整超参数
+
+---
+## 相关拓展
+
+以上例子介绍了如何使用神经网络来处理简单问题（数据量较小的回归问题），但在实际过程中可能面临种种困难，包括：如何对数据进行预处理，如何进行特征筛选，如何解决过拟合问题，如何调整参数等。
+
+具体可查阅书籍：[《Deep Learning with R》](https://www.manning.com/books/deep-learning-with-r-second-edition?utm_source=kalinowski&utm_medium=affiliate&utm_campaign=book_allaire2_deep_5_24_22&a_aid=kalinowski&a_bid=c7cc060f)，对应 [代码](https://github.com/fmmattioni/deep-learning-with-r-notebooks)，[中文翻译版本](https://item.jd.com/13183476.html)。
+
+[神经网络与深度学习](https://nndl.github.io/)，对应 [pdf](https://nndl.github.io/nndl-book.pdf)，[代码练习](https://github.com/nndl/exercise)。
+
+```{r out.width="80%",fig.align='center'}
+knitr::include_graphics("figure/3.png")
+```
+
+
+---
+### 相关教程
+
+1.  RStudio 官网 TensorFlow [资料](https://tensorflow.rstudio.com/) 和 AI 相关 [博客](https://blogs.rstudio.com/ai/);
+
+2.  入门教程：[keras: R 语言中的深度学习](https://www.datacamp.com/community/tutorials/keras-r-deep-learning)；
+
+3.  基于 Keras 和 TensorFlow 的深度学习的 [研讨会](https://github.com/rstudio-conf-2020/dl-keras-tf)；
+
+4.  RStudio 官方给出的 Keras [速查表](https://raw.githubusercontent.com/rstudio/cheatsheets/main/keras.pdf)。
+
+---
+
+```{r out.width="100%",fig.align='center',fig.cap=""}
+knitr::include_graphics("figure/8.png")
+```
+
+---
+
+```{r out.width="100%",fig.align='center',fig.cap=""}
+knitr::include_graphics("figure/9.png")
+```
+
+---
+
+### 相关视频
+
+1.  [基于R语言的深度学习：针对入学者](https://www.youtube.com/watch?v=xzbVK2tqTfM&t=11978s)；
+  
+2.  Shirin 在 2020 年 R 会议的报告：[《基于R语言的深度学习》](https://www.youtube.com/watch?v=uBISMeExoqk)，[会议笔记](https://gitlab.com/ShirinG/keras_tutorial_user2020)。
+
+> 防止加载不了视频，已搬运到 B 站 [(1)](https://www.bilibili.com/video/BV1E3411n7Ry/)， [(2)](https://www.bilibili.com/video/BV1W34y1v795/?spm_id_from=333.788)，仅供大家学习。
+
+
+```{r out.width="80%",fig.align='center',fig.cap=""}
+knitr::include_graphics("figure/12.png")
+```
+
+---
+
+### 相关案例
+
+-   [R 中使用 TensorFlow Probability](https://blogs.rstudio.com/ai/posts/2019-01-08-getting-started-with-tf-probability/)
+
+-   [表示学习](https://blogs.rstudio.com/ai/posts/2018-10-22-mmd-vae/#our-objective-today)
+
+-   [几何深度学习](https://blogs.rstudio.com/ai/posts/2021-08-26-geometric-deep-learning/)
+
+-   [基于空间预测的卷积 LSTM 网络](https://blogs.rstudio.com/ai/posts/2020-12-17-torch-convlstm/)
+
+### 如何在快速发展的领域保持最新状态
+
+1. 使用 Kaggle 练习实际问题
+
+2. 了解 [arXiv](https://arxiv.org/) 的最新发展
+
+3. 探索 [Keras](https://keras.io/) 生态系统
+
+4. 利用网站搜索最新代码：[Papers with Cqode](https://paperswithcode.com/)、[GitHub](https://github.com/)。
+
+---
+class: center, middle
+
+# Thanks!
+

@@ -1,0 +1,4 @@
+"0","model %>% compile(loss = 'mse', #损失函数"
+"0","                  optimizer = 'rmsprop', #优化器"
+"0","                  metrics = 'mae'#监控度量"
+"0","                  )"

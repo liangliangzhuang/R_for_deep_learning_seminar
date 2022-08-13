@@ -1,0 +1,4 @@
+"0","reloaded_model <- load_model_tf(""BostonHousing_model"") #加载模型"
+"0","pred3 <- predict(reloaded_model, test) #对新数据集进行预测"
+"2","2022-08-13 18:16:21.682233: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:113] Plugin optimizer for device_type GPU is enabled.
+"

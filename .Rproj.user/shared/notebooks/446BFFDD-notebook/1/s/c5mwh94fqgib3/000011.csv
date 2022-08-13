@@ -1,0 +1,4 @@
+"0","data(""BostonHousing"")"
+"0","data <- BostonHousing "
+"0","data %<>% mutate_if(is.factor, as.numeric)"
+"0","knitr::kable(head(data[,1:12])) "
