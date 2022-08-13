@@ -65,4 +65,4 @@
 
 
 
-> 读者有问题，可提交 [Issues](https://github.com/liangliangzhuang/R_for_deep_learning_seminar/issues)，我会尽快回复。
+> 读者有问题，可提交 [Issues](https://github.com/liangliangzhuang/R_for_deep_learning_seminar/issues)，我会尽快回复。欢迎关注我的 [博客](https://zll-blog.netlify.app/)、[公众号](https://zll-blog.netlify.app/images/wechat.png)、[b 站](https://space.bilibili.com/226576305)。
