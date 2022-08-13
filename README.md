@@ -65,4 +65,4 @@
 
 
 
-> 读者有问题，可提交 issue，我会尽快回复。
+> 读者有问题，可提交 [Issues](https://github.com/liangliangzhuang/R_for_deep_learning_seminar/issues)，我会尽快回复。
