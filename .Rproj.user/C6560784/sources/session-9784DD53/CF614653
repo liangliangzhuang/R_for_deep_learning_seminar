@@ -3,7 +3,7 @@
     "path": "~/Desktop/cos_meeting/slides/Report.Rmd",
     "project_path": "Report.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "2242988022",
     "contents": "",
     "dirty": false,
     "created": 1660269337856.0,
@@ -12,18 +12,18 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "139,3",
-        "scrollLine": "96",
+        "cursorPosition": "7,11",
+        "scrollLine": "0",
         "docOutlineVisible": "1",
         "rmdVisualMode": "false",
         "last_setup_crc32": ""
     },
     "folds": "",
-    "lastKnownWriteTime": 1660371845,
+    "lastKnownWriteTime": 1660399359,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1660371845490,
+    "last_content_update": 1660399359678,
     "read_only": false,
     "read_only_alternatives": []
 }

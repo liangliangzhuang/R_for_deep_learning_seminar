@@ -1,0 +1,5 @@
+"0","# 数据标准化"
+"0","m <- colMeans(training)"
+"0","s <- apply(training, 2, sd)"
+"0","training <- scale(training, center = m, scale = s)"
+"0","test <- scale(test, center = m, scale = s)"

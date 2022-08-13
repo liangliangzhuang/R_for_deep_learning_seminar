@@ -1,0 +1,6 @@
+"0","keras_model_sequential() "
+"1","Model: <no summary available, model was not built>
+"
+"0","model <- keras_model_sequential() %>% "
+"0","         layer_dense(units = 10, activation = 'relu', input_shape = c(13)) %>%"
+"0","         layer_dense(units = 1)"

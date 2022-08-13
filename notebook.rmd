@@ -268,7 +268,7 @@ pred2 <- predict(model2,test) #预测结果
 mean((testtarget-pred2)^2) 
 ```
 
-![](images/paste-1D8FC80E.png)
+![](figure/p1.png)
 
 ```{r}
 model3 <- keras_model_sequential() %>% 
@@ -292,7 +292,7 @@ mymodel3 <- model3 %>%
              validation_split = 0.2)
 ```
 
-![](images/paste-C668DB3D.png)
+![](figure/p2.png)
 
 ```{r}
 model3 %>% evaluate(test, testtarget)
@@ -324,7 +324,7 @@ mean((testtarget-pred3)^2)
 
 在 `layer_dense()` 中添加 `kernel_regularizer =  regularizer_l2(0.01)`
 
-![](images/paste-54FA7122.png)
+![](figure/p3.png)
 
 4.  添加 dropout
 

@@ -5,7 +5,6 @@ date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
-    lib_dir: libs
     nature:
       highlightStyle: github
       highlightLines: true
@@ -353,7 +352,7 @@ knitr::include_graphics("figure/12.png")
 
 3. 探索 [Keras](https://keras.io/) 生态系统
 
-4. 利用网站搜索最新代码：[Papers with Cqode](https://paperswithcode.com/)、[GitHub](https://github.com/)。
+4. 利用网站搜索最新代码：[Papers with Code](https://paperswithcode.com/)、[GitHub](https://github.com/)。
 
 ---
 class: center, middle
